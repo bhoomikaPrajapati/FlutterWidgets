@@ -28,7 +28,10 @@ class Calculation extends State<SimpleCalculation> {
 
   @override
   Widget build(BuildContext context) {
-    TextStyle? textStyle = Theme.of(context).textTheme.subtitle1;
+    TextStyle? textStyle = Theme
+        .of(context)
+        .textTheme
+        .subtitle1;
 
     return Scaffold(
       appBar: AppBar(title: Text("Simple Calculation")),
@@ -41,7 +44,9 @@ class Calculation extends State<SimpleCalculation> {
                 getImageLogo(),
                 TextFormField(
                   validator: (var value) {
-                    if (value.toString().isEmpty) return "Please enter principal amount.";
+                    if (value
+                        .toString()
+                        .isEmpty) return "Please enter principal amount.";
                   },
                   style: textStyle,
                   controller: principalController,
@@ -58,7 +63,9 @@ class Calculation extends State<SimpleCalculation> {
                 TextFormField(
                   style: textStyle,
                   validator: (var value) {
-                    if (value.toString().isEmpty) return "Please enter interest rate.";
+                    if (value
+                        .toString()
+                        .isEmpty) return "Please enter interest rate.";
                   },
                   keyboardType: TextInputType.number,
                   controller: rateController,
@@ -73,34 +80,37 @@ class Calculation extends State<SimpleCalculation> {
                   children: [
                     Expanded(
                         child: TextFormField(
-                      style: textStyle,
-                      validator: (var value) {
-                        if (value.toString().isEmpty) return "Please enter term";
-                      },
-                      controller: termController,
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                          labelStyle: textStyle,
-                          labelText: "Term",
-                          hintText: "In Year eg. 2 year",
-                          border: OutlineInputBorder(borderRadius: BorderRadius.circular(5))),
-                    )),
+                          style: textStyle,
+                          validator: (var value) {
+                            if (value
+                                .toString()
+                                .isEmpty) return "Please enter term";
+                          },
+                          controller: termController,
+                          keyboardType: TextInputType.number,
+                          decoration: InputDecoration(
+                              labelStyle: textStyle,
+                              labelText: "Term",
+                              hintText: "In Year eg. 2 year",
+                              border: OutlineInputBorder(borderRadius: BorderRadius.circular(5))),
+                        )),
                     Padding(padding: EdgeInsets.all(5)),
                     Expanded(
                         child: DropdownButton(
-                      items: _currencies
-                          .map((selectedValue) => DropdownMenuItem(
+                          items: _currencies
+                              .map((selectedValue) =>
+                              DropdownMenuItem(
                                 child: Text(selectedValue),
                                 value: selectedValue,
                               ))
-                          .toList(),
-                      onChanged: (var newSelectedValue) {
-                        setState(() {
-                          this._selectedCurrencies = newSelectedValue.toString();
-                        });
-                      },
-                      value: _selectedCurrencies,
-                    ))
+                              .toList(),
+                          onChanged: (var newSelectedValue) {
+                            setState(() {
+                              this._selectedCurrencies = newSelectedValue.toString();
+                            });
+                          },
+                          value: _selectedCurrencies,
+                        ))
                   ],
                 ),
                 Padding(padding: EdgeInsets.all(10)),

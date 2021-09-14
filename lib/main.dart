@@ -1,16 +1,16 @@
+import 'package:first_app/note_app/note_list.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'app_screens/simple_calculation_example.dart';
 
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: SimpleCalculation(),
+    home: NoteList(),
     theme: ThemeData(
       primaryColor: Colors.deepPurple,
       accentColor: Colors.deepPurpleAccent,
       primaryColorDark: Colors.deepPurple,
+      primarySwatch: Colors.deepPurple,
     ),
   ));
 
